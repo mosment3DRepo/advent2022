@@ -1,20 +1,23 @@
 # For each elf total the calories
 # if it's higher than the current variable then add that one
 
-f = open("input.txt", "r")
+f = open("Day01\\input.txt", "r")
 input = f.read()
 
+elves = input.split("\n\n")
+
 bigCal = 0
+currentCal = 0
 
-for x in input:
-    if x == "\n":
-        currentCal = 0
-    else:
-        currentCal = currentCal + x
-    if currentCal > bigCal:
-        bigCal = currentCal
-    else:
-        next
+for elf in elves:
+    fruitList = elf.split("\n")
+    for fruit in fruitList:
+        currentCal = currentCal + float(fruit or 0)
+        if currentCal > bigCal:
+            bigCal = currentCal
+    currentCal = 0
 
-    
+print(bigCal)
+        
+
 
