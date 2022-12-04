@@ -1,4 +1,7 @@
 backpackList= 0
+groupList =[]
+bags = []
+n = 1
 with open("Day03\\input.txt", 'r') as f:
     for backpack in f.readlines():
         containerSize = int(len(backpack)/2)
@@ -9,6 +12,13 @@ with open("Day03\\input.txt", 'r') as f:
             backpackList += ord(a)-38
         else:
             backpackList += ord(a)-96
+        bags.append(backpack)
+        if n == 3:
+            n = 0
+            groupList.append(bags)
+            bags =[]
+        n += 1
+        
 print(backpackList)
     
 
