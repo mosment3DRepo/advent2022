@@ -14,10 +14,9 @@ for column in range(9):
 
 
 for instr in lines[10:]:
-    instr = re.split('move | from | to ',instr.strip())
-    numMove= int(instr[1])
-    numFrom = int(instr[2])-1
-    numTo = int(instr[3])-1
+    numMove= int(instr.split()[1])
+    numFrom = int(instr.split()[3])-1
+    numTo = int(instr.split()[5])-1
     newStack = stackUp[numFrom][:numMove]
     newStack.reverse()
     stackUp[numTo] = newStack + stackUp[numTo]
